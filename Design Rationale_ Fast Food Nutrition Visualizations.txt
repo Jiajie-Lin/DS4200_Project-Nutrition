@@ -1,0 +1,74 @@
+Design Rationale: Fast Food Nutrition Visualizations
+
+DS 4200 Final Project
+Jiajie Lin, Weilun Guan, Jiayu Zou
+
+────────────────────────────────────────────────────────────────
+
+GRAPH 1: Bar Chart – Average Calories by Restaurant
+
+Design Choice: Horizontal bar chart with dropdown selector
+
+Bar charts are the most effective visualization for comparing a single quantitative measure across discrete categories. Since our primary question involves identifying which restaurants have the highest and lowest average calories, a bar chart provides an immediate, intuitive comparison. By sorting the bars from tallest to shortest (highest values on the left), users can instantly identify which restaurants have the most calories, fat, sodium, or any other selected metric. The horizontal orientation also accommodates long restaurant names without crowding or angled labels. A dropdown selector allows users to toggle between nutritional factors (calories, fat, sodium, sugar, protein, etc.).
+
+This graph answers the question of where to eat to minimize calories at a glance. As we found in our analysis, some chains have consistently higher levels of calories, fat, and sodium, while others provide items with relatively more fiber, vitamins, or protein—meaning the "typical" meal at one chain can be much heavier than at another, even before looking at portion size.
+
+────────────────────────────────────────────────────────────────
+
+GRAPH 2: Box Plot – Calorie Distribution by Restaurant
+
+Design Choice: Box-and-whisker plot showing calorie distributions
+
+This visualization builds directly on Graph 1. While the bar chart shows averages, averages can be misleading—a restaurant might have a low average but still offer extremely high-calorie items. Box plots reveal the full distribution: the box represents the interquartile range (IQR), the line inside marks the median, and the whiskers show typical minimum and maximum values. Points beyond the whiskers represent outliers.
+
+Restaurants with taller boxes and longer whiskers have more variability in calorie levels, meaning it's easier to accidentally choose a very high-calorie item. In contrast, restaurants with tighter boxes offer more consistent calorie ranges across their menus. This shows how risky a single choice can be—chains with wide distributions make it easy to "accidentally" pick an item that is far above the average. This visualization reveals that some restaurants with moderate averages actually have extreme outliers, while others maintain tight nutritional consistency across their menu.
+
+────────────────────────────────────────────────────────────────
+
+GRAPH 3: Scatter Plot – Calories vs. Sodium/Fat/Sugar
+
+Design Choice: Interactive scatter plot with color-coded points by restaurant
+
+Scatter plots are ideal for exploring relationships between two continuous variables. We wanted to investigate whether high-calorie items are also high in other concerning metrics. Each point represents a single menu item, plotted by calories on the x-axis and sodium, fat, or sugar on the y-axis. The color encodes the restaurant so users can compare patterns across different chains.
+
+Different consumers have different health concerns. Someone managing blood pressure cares about sodium; someone watching weight cares about fat. Toggle functionality lets users explore the relationship most relevant to them. A restaurant filter dropdown helps reduce visual clutter—with 8 restaurants and thousands of data points, filtering by restaurant helps users focus on specific chains without overwhelming overlap.
+
+Our analysis shows that once calories go up, sodium, fat, and sugar usually increase at the same time. High-calorie items are rarely "bad" in only one dimension—they tend to be high in several unhealthy metrics, which increases long-term health risks such as heart disease and high blood pressure.
+
+────────────────────────────────────────────────────────────────
+
+GRAPH 4: Box Plot – Macronutrient Distribution by Food Category
+
+Design Choice: Side-by-side box plots showing fat, carbohydrates, and protein across food categories (Burgers, Salads, Chicken, Mexican, Pizza, Hot Dogs, etc.)
+
+A simple average cannot reveal how spread out nutrient values are, whether there are extreme items, or how balanced each category truly is. Box plots allow users to quickly see the median, variability, and outliers, making it much easier to understand why some food categories tend to be unhealthy.
+
+This graph shifts the analysis from "where you eat" to "what you eat," and begins drawing users toward a cohesive conclusion. After examining restaurant-level patterns in Graphs 1-3, we now show that the type of food matters just as much as the restaurant itself. By placing three box plots side-by-side (fat, carbs, protein), users can compare macronutrients at the distribution level instead of relying only on individual values or averages. This means choosing a different category (for example, salad or grilled chicken instead of a burger) can change the entire nutrient profile of the meal, even when the total calories are similar.
+
+Burgers and pizza tend to have the highest fat and carbohydrate levels, while salads and some chicken options have more balanced profiles with lower carbs and reasonable protein. This graph helps explain the deeper nutritional patterns behind fast-food categories.
+
+────────────────────────────────────────────────────────────────
+
+GRAPH 5: Interactive Bar Chart – Top 10 Best vs. Top 10 Worst Items
+
+Design Choice: Split/diverging bar chart with interactive metric selection
+
+After understanding patterns at the restaurant and category level, consumers ultimately need actionable guidance about what specific items to order or avoid. Instead of comparing restaurants or categories, this chart ranks individual items using metrics like calories, fat, sodium, and sugar.
+
+Showing only the worst items is fear-based; showing only the best might miss important warnings. The split view gives a complete picture and emphasizes the dramatic range in nutritional quality. Our analysis shows the gap between the healthiest and least healthy items is very large—for many metrics, the worst items contain several times more calories, fat, or sodium than the best items.
+
+The toggle buttons let viewers instantly change the criteria, and the chart recomputes the top 10 best and worst choices on the fly. This level of interactivity empowers users to explore the dataset based on their own health priorities. Users can also click on any bar to reveal full nutritional breakdown and filter by restaurant or category.
+
+The healthiest items are often salads or grilled chicken dishes, which still provide protein but with much less saturated fat and added sugar. By avoiding the worst items and choosing from the best group, consumers can reduce several risk factors at once without completely giving up fast food.
+
+────────────────────────────────────────────────────────────────
+
+SUMMARY
+
+Graph 1: Which restaurants are highest/lowest in calories?
+Graph 2: How consistent are restaurant menus?
+Graph 3: Are high-calorie items also high in sodium/fat/sugar?
+Graph 4: What macronutrients drive unhealthy food categories?
+Graph 5: What specific items should I order or avoid?
+
+This progression ensures that consumers leave not just informed, but empowered to make healthier fast food choices.

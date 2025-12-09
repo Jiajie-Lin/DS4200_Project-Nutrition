@@ -70,6 +70,18 @@
     #legend svg {
       margin-right: 4px;
     }
+
+    /* References styling */
+    .citation {
+      margin-left: 2em;
+      text-indent: -2em;
+      margin-bottom: 1em;
+    }
+
+    .citation a {
+      color: #0066cc;
+      word-break: break-all;
+    }
   </style>
 
   <!-- D3 for Graph 2 and Graph 3 -->
@@ -127,11 +139,41 @@
     its impact on public health.
   </p>
 
+  <h3>Works Cited</h3>
+  <p class="citation">
+    Bauer, Katherine W., et al. "Nutritional Quality at Eight U.S. Fast-Food Chains: 14-Year Trends." 
+    <em>American Journal of Preventive Medicine</em>, vol. 44, no. 6, 2013, pp. 589–594. PubMed, 
+    <a href="https://pubmed.ncbi.nlm.nih.gov/23683976/" target="_blank">https://pubmed.ncbi.nlm.nih.gov/23683976/</a>.
+  </p>
+  <p class="citation">
+    Bahadoran, Zahra, et al. "Fast Food Pattern and Cardiometabolic Disorders: A Review of Current Studies." 
+    <em>Health Promotion Perspectives</em>, vol. 5, no. 4, 2015, pp. 231–240. PubMed Central, 
+    <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4772793/" target="_blank">https://pmc.ncbi.nlm.nih.gov/articles/PMC4772793/</a>.
+  </p>
+
   <h1 style='text-align: center; text-decoration: underline; font-weight: bold;'>Graphs</h1>
 
   <!-- ================= Graph 1 ================= -->
   <h2>Graph 1: Average Calories by Restaurant</h2>
   <iframe src="graph1.html" width="1100px" height="700px" frameborder="0"></iframe>
+
+  <p>
+    This visualization reveals that not all fast-food chains are created equal when it comes to nutrition. 
+    By toggling through different metrics, we can see that some restaurants consistently rank higher in 
+    calories, sodium, and fat, while others offer relatively lighter options. For example, chains known 
+    for larger portion sizes or fried foods tend to dominate the top of the rankings for unhealthy metrics, 
+    whereas sandwich-focused or customizable chains often appear lower. This initial comparison sets the 
+    stage for deeper analysis: if certain restaurants are broadly "worse" than others, what specific menu 
+    items are driving those averages? The following visualizations will drill down into calorie distributions, 
+    nutrient correlations, and individual item rankings to answer that question.
+  </p>
+
+  <p>
+    <strong>Takeaway:</strong>
+    Your choice of restaurant matters before you even look at the menu. Some chains have significantly 
+    higher average calories, fat, and sodium across their entire offerings, meaning even a "moderate" 
+    choice at one restaurant could be worse than an indulgent choice at another.
+  </p>
 
   <!-- ================= Graph 2 ================= -->
   <h2>Graph 2: Calorie Distribution by Restaurant (Box Plot)</h2>
@@ -194,16 +236,34 @@
   </p>
 
   <!-- ================= Placeholders for Graph 4 & 5 ================= -->
-  <h2>Graph 4</h2>
-<iframe src="Graph 4 Box Plot  D3.html" width="1100px" height="800px" frameborder="0"></iframe>
-<p>I created the macronutrient box plot to show the full distribution of fat, carbohydrates, and protein across different fast-food categories. A simple average cannot reveal how spread out the nutrient values are, whether there are extreme items, or how balanced each category truly is. Box plots allow users to quickly see the median, variability, and outliers, making it much easier to understand why some food categories—such as burgers, pizza, or Mexican items—tend to be unhealthy. By placing three box plots side-by-side, users can compare macronutrients at the distribution level instead of relying only on individual values or averages. This graph helps explain the deeper nutritional patterns behind fast-food categories.</p>
+  <h2>Graph 4: Macronutrient Distribution by Food Category</h2>
+  <iframe src="Graph 4 Box Plot D3.html" width="1100px" height="800px" frameborder="0"></iframe>
+  <p>
+    I created the macronutrient box plot to show the full distribution of fat, carbohydrates, and 
+    protein across different fast-food categories. A simple average cannot reveal how spread out 
+    the nutrient values are, whether there are extreme items, or how balanced each category truly is. 
+    Box plots allow users to quickly see the median, variability, and outliers, making it much easier 
+    to understand why some food categories—such as burgers, pizza, or Mexican items—tend to be unhealthy. 
+    By placing three box plots side-by-side, users can compare macronutrients at the distribution level 
+    instead of relying only on individual values or averages. This graph helps explain the deeper 
+    nutritional patterns behind fast-food categories.
+  </p>
 
-  <h2>Graph 5</h2>
-<iframe src="Graph 5 Interactive Bar Chart D3.html" width="1200px" height="1200px" frameborder="0"></iframe>
-<p>I created the interactive Best vs Worst bar chart to give users the most practical, actionable information: which specific menu items they should avoid and which ones they should consider ordering. Instead of comparing restaurants or categories, this chart ranks individual items using metrics like calories, fat, sodium, and sugar. The toggle buttons let viewers instantly change the criteria, and the chart recomputes the top 10 best and worst choices on the fly. This level of interactivity empowers users to explore the dataset based on their own health priorities. By presenting the healthiest and unhealthiest items side-by-side, this visualization delivers direct guidance and creates clear, memorable takeaways.</p>
+  <h2>Graph 5: Best vs Worst Menu Items</h2>
+  <iframe src="Graph 5 Interactive Bar Chart D3.html" width="1200px" height="1200px" frameborder="0"></iframe>
+  <p>
+    I created the interactive Best vs Worst bar chart to give users the most practical, actionable 
+    information: which specific menu items they should avoid and which ones they should consider ordering. 
+    Instead of comparing restaurants or categories, this chart ranks individual items using metrics like 
+    calories, fat, sodium, and sugar. The toggle buttons let viewers instantly change the criteria, and 
+    the chart recomputes the top 10 best and worst choices on the fly. This level of interactivity empowers 
+    users to explore the dataset based on their own health priorities. By presenting the healthiest and 
+    unhealthiest items side-by-side, this visualization delivers direct guidance and creates clear, 
+    memorable takeaways.
+  </p>
 
   <!-- ========= Conclusion ========= -->
-    <h2>Conclusion</h2>
+  <h2>Conclusion</h2>
   <p style="text-indent: 2em;">
     This project uses more than 5,000 menu items from major fast food chains to give a clearer
     picture of how calories and other nutrients are distributed across restaurants, food
@@ -261,7 +321,6 @@
     transparent, so that people can make informed decisions rather than guessing from the menu
     pictures alone.
   </p>
-
 
   <!-- ========== Graph 2 JS (Box Plot) ========== -->
   <script>
